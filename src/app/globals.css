@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #0A0806; }
+  ::-webkit-scrollbar-thumb { background: #2C2420; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B0A198; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0A0806;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.4);
+    cursor: pointer;
+  }
+
+  select option { background-color: #1A1410; color: #FAF6F1; }
+}
+
+/* ── Bottom sheet slide-up animation ── */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.animate-slide-up {
+  animation: slideUp 0.38s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+/* ── Backdrop fade in ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+.animate-fade-bg {
+  animation: fadeIn 0.25s ease-out forwards;
+}
